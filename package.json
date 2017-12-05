@@ -1,0 +1,23 @@
+{
+  "name": "exchange-event-app",
+  "version": "1.0.0",
+  "description": "Ask the expert app for a better management of event and customer",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "exchange-app",
+    "exchange",
+    "event",
+    "app"
+  ],
+  "author": "Landis and Gyr",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.0",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.6",
+    "pug": "^2.0.0-rc.4"
+  }
+}

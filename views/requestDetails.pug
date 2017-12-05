@@ -1,0 +1,37 @@
+html
+	head
+		title All Requests
+	body
+		center
+			p Request id : #{request._id}
+			br
+			p Categoty : #{request.category}
+			br
+			p Customer : #{request.customer.name}
+			br
+			p Representative : #{request.customer.representative}
+			br
+			p Question : #{request.custom_question}
+			br
+			if request.CRM
+				p CRM : #{request.CRM}
+				br
+			if request.notes
+				p Notes : 
+					for each note in #{request.notes}
+						p #{note.addedBy} #{note.crm} : #{note.text} 
+			br
+			form(action="/updaterequest" method="post")
+				input(type="hidden" name="request_id" value=request._id)
+				p CRM :
+					input(type="text" name="crm" value="request.CRM")
+				br
+				p Notes : 
+					textarea(name="notes" rows=6 cols=50 value="request.notes")
+				br
+				p Updated By
+					input(type="text" name="empName")
+				br
+
+				button(type="submit") Submit
+

@@ -1,0 +1,17 @@
+html
+	head
+		title All Requests
+	body
+		table(id="RequestTable")
+			tr
+				th Category
+				th Customer
+				th Question
+				th CRM
+			each request in requests
+				tr
+					td 
+						a(href = '/request?id='+request._id) #{request.category}
+					td #{request.customer.name}	
+					td #{request.question}
+					td #{request.CRM}

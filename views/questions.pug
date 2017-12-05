@@ -1,0 +1,35 @@
+html
+	head
+		title Questions
+	body
+		center 
+			img(src="/images/lg.png", style="width:75px;height 75px;")
+			br
+			form(action="/thankyou" method="post")
+				input(type="hidden" name="category" value=category[0]._id)
+				br
+				p Questions	&nbsp :	&nbsp 
+					select(name="question")
+						each question in category[0].questions
+							option(value=question) #{question}
+				br
+				br 
+				p More information
+				input(type="text" name="moreInfo") 
+				br
+				p Customer Information
+				br
+				p Customer Name: 
+				input(type="text" name="customerName")
+				br
+				p Representative Name : 
+				input(type="text" name="repName")
+				br
+				p Email
+				input(type="text" name="email")
+				br
+				br
+				p Phone
+				input(type="text" name="phone")
+				br
+				button(type="submit") Submit
