@@ -1,5 +1,16 @@
 html
 	head
 		title Thank You
+		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+		style
+			include ../public/assets/gmCSS1.css
+
 	body
-		p Please proceed to booth #{booth.boothNo}
+		h1 Thank You!
+		h2 Please proceed to booth #{booth.boothNo}
+		script.
+			$(document).ready(function () {
+			window.setTimeout(function () {
+			location.href = "/";
+			}, 5000);
+			});

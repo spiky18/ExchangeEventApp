@@ -65,7 +65,7 @@ module.exports.findById=function(id,callback){
 
 
 module.exports.updateRequest =function(body,callback){
-	Request.update({_id:Object(body.request_id)},{$set:{"CRM":body.crm,"updatedBy":body.empName,"updationTime":new Date()},$addT},function(err,results){
+	Request.update({_id:Object(body.request_id)},{$set:{"CRM":body.crm,"updatedBy":body.empName,"updationTime":new Date()},$addToSet:{"notes":{addedBy:body.empName,crm:body.crm,text:body.notes}}},function(err,results){
 	if(err)
 		console.log(err);
 	callback(results);

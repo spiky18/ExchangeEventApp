@@ -50,7 +50,7 @@ router.post('/addbooth', function (req, res) {
 router.post('/thankyou', function (req, res) {
   //TO DO insert  into expert table
   request.addRequest(req.body,function(results){console.log(results)});
-  booth.getBoothByCategory(req.body.category,function(results){
+  booth.getBoothByCategory(req.body.contact_category,function(results){
       res.render(path.join(__dirname, '..', "/views/thankyou.pug" ),{booth : results});
    });
 });
