@@ -7,7 +7,7 @@ var express = require('express');
    request=require(path.join(__dirname, '..','/model/request.js'));
 
 router.get('/', function (req, res) {
-   res.send('Calendar view : work in progress');
+   res.sendFile( path.join(__dirname, '..', "/views/index.html" ));
 });
 
 

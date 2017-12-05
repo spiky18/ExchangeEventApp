@@ -14,7 +14,7 @@ var requestSchema = mongoose.Schema({
   	email:String,
   	phone:String
   },
-  notes : [{addedBy : String,crm : String,,text:String,_id:false}}],
+  notes : [{addedBy : String,crm : String,text:String,_id:false}],
   updatedBy : String,
   creationTime: Date,
   updationTime : Date
@@ -25,16 +25,16 @@ var Request = conn.model('Request', requestSchema);
 
 module.exports.addRequest=function(body,callback){
 	var request=new Request({
-		category:body.category,
+		category:body.contact_category,
 		//question:body.question,
-		custom_question:body.moreInfo,
+		custom_question:body.contact_question,
 		customer:{
-			name:body.customerName,
-			representative:body.repName,
-			email:body.email,
-			phone:body.phone
+			name:body.contact_customer,
+			representative:body.contact_name,
+			email:body.contact_email,
+			phone:body.contact_phone
 		},
-		updatedBy:body.customerName,
+		updatedBy:body.contact_customer,
 		creationTime: new Date(),
   		updationTime : new Date()
 	});
