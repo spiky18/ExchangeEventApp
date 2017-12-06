@@ -5,26 +5,27 @@ html
 		link(rel='stylesheet', href='/assets/gmCSS2_Form.css')
 	body
 		h1 Case Information
-		table(id="qesNotes")
-			tr
-				td Customer Name: #{request.customer.name}
-				td Customer Contact : #{request.customer.representative}
-			tr 
-				td Categoty : #{request.category}
-				if request.CRM
-				td CRM : #{request.CRM}
-				br
-			tr 
-				td Customer Question : #{request.custom_question}
-			tr
-				if request.notes
-					td Notes: 
-						p
-							each note in request.notes
-								|#{note.addedBy} #{note.crm} 
-								br 
-								|#{note.text}
-								br
+		#qesNotes
+			table(id="customerInfo")
+				tr
+					td Customer Name: #{request.customer.name}
+					td Customer Contact : #{request.customer.representative}
+				tr 
+					td Categoty : #{request.category}
+					if request.CRM
+					td CRM : #{request.CRM}
+					br
+				tr 
+					td Customer Question : #{request.custom_question}
+				tr
+					if request.notes
+						td Notes: 
+							p
+								each note in request.notes
+									|#{note.addedBy} #{note.crm} 
+									br 
+									|#{note.text}
+									br
 		#studio
 			form(id="contact" action="/updaterequest" method="post")
 				h3 L+G Expert Section
@@ -40,6 +41,12 @@ html
 				fieldset
 					input(type="text" name="record_crm" value=request.CRM placeholder="Record CRM")
 					br
+				fieldset
+					select(name="record_query_type" placeholder="Query Type")
+						option(value="greetings") Greetings
+						option(value="generic") Generic
+						option(value="case") Case
+					br 
 				fieldset
 					button(type="submit",id="contact_submit",name="contact_submit",data-submit="...Sending") Submit
 					br
