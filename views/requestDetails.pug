@@ -16,10 +16,10 @@ html
 					td CRM : #{request.CRM}
 					br
 				tr 
-					td Customer Question : #{request.custom_question}
+					td(colspan="2") Customer Question : #{request.custom_question}
 				tr
 					if request.notes
-						td Notes: 
+						td(colspan="2") Notes: 
 							p
 								each note in request.notes
 									|#{note.addedBy} #{note.crm} 

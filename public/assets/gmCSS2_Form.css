@@ -134,7 +134,7 @@ fieldset {
   text-align: left;
   overflow: auto;
   vertical-align:middle;
-  white-space: normal;
+  white-space: initial;
   font-weight: 300;
   font-size: 16px;
   color: #fff;
