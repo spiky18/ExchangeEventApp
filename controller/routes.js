@@ -74,4 +74,8 @@ router.post('/updaterequest',function (req, res) {
    });
 });
 
+router.get('*', function(req, res){
+  res.send('The page you are looking for is not found', 404);
+});
+
 module.exports = router;
