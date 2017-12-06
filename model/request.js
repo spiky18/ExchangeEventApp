@@ -15,6 +15,7 @@ var requestSchema = mongoose.Schema({
   	phone:String
   },
   notes : [{addedBy : String,crm : String,text:String,_id:false}],
+  queryType:String,
   updatedBy : String,
   creationTime: Date,
   updationTime : Date
@@ -65,7 +66,15 @@ module.exports.findById=function(id,callback){
 
 
 module.exports.updateRequest =function(body,callback){
-	Request.update({_id:Object(body.request_id)},{$set:{"CRM":body.record_crm,"updatedBy":body.record_expert_name,"updationTime":new Date()},$addToSet:{"notes":{addedBy:body.record_expert_name,crm:body.record_crm,text:body.record_notes}}},function(err,results){
+	Request.update({_id:Object(body.request_id)},{$set:{"CRM":body.record_crm,"queryType":body.record_query_type,"updatedBy":body.record_expert_name,"updationTime":new Date()},$addToSet:{"notes":{addedBy:body.record_expert_name,crm:body.record_crm,text:body.record_notes}}},function(err,results){
+	if(err)
+		console.log(err);
+	callback(results);
+});
+}
+
+module.exports.getDataByTypeAndCategory=function(callback){
+	Request.aggregate([{$group:{_id:{qtype:"$queryType",cat:"$category"},count:{$sum:1}}}],function(err,results){
 	if(err)
 		console.log(err);
 	callback(results);

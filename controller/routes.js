@@ -74,6 +74,13 @@ router.post('/updaterequest',function (req, res) {
    });
 });
 
+router.get('/analytics',function (req, res) {
+  request.getDataByTypeAndCategory(function(results){
+      //res.json(results);
+      res.render(path.join(__dirname, '..', "/views/datachart.pug" ),{data : results});
+   });
+});
+
 router.get('*', function(req, res){
   res.send('The page you are looking for is not found', 404);
 });

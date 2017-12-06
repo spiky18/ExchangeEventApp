@@ -1,0 +1,51 @@
+html
+	head
+		title Employee Profile
+		script(src='https://www.gstatic.com/charts/loader.js')
+	body
+		div(id='technology')
+		script.
+			google.charts.load("current", {packages:["bar"]});
+			var categorizedata = !{JSON.stringify(data)};
+			var formattedData=function(objArr){
+			var catmap = {
+			'ALM': 1,
+			'PLC': 2,
+			'Meterin': 3,
+			'MDMS':4,
+			'DA':5,
+			'CC':6
+			};
+			var typeMap = {
+			'generic':1,
+			'greetings':2,
+			'case':3
+			};
+			var result=[['type','ALM','PLC','Meterin','MDMS','DA','CC'],['generic',0,0,0,0,0,0],['greetings',0,0,0,0,0,0],['case',0,0,0,0,0,0]];
+			for(i=0;i<objArr.length;i++){
+				if(typeof objArr[i]._id.qtype!='undefined'){
+				var row=typeMap[objArr[i]._id.qtype];
+				var col=catmap[objArr[i]._id.cat];
+				result[row][col]=objArr[i].count;
+				}
+			}
+			return result;
+			}
+			var matrix=formattedData(categorizedata);
+			google.charts.setOnLoadCallback(drawChart);
+
+			function drawChart() {
+			var data = google.visualization.arrayToDataTable(matrix);
+			var options =  {
+			chart: {
+			title: 'Company Performance',
+			subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+			},
+			bars: 'horizontal', // Required for Material Bar Charts.
+			hAxis: {format: 'decimal'},
+			height: 400,
+			colors: ['#1b9e77', '#d95f02', '#7570b3','#4caf50']
+			};
+			 var chart = new google.charts.Bar(document.getElementById('technology'));
+			 chart.draw(data, google.charts.Bar.convertOptions(options));
+			}
