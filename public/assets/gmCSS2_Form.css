@@ -122,6 +122,25 @@ fieldset {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
+#qesNotes table {
+  width:80%;
+  margin: 0 auto;
+  table-layout: absolute;
+  align-self: center;
+}
+
+#qesNotes td {
+  padding: 8px;
+  text-align: left;
+  overflow: auto;
+  vertical-align:middle;
+  white-space: normal;
+  font-weight: 300;
+  font-size: 16px;
+  color: #fff;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+
 .copyright {
   text-align: center;
 }

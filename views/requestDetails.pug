@@ -5,7 +5,7 @@ html
 		link(rel='stylesheet', href='/assets/gmCSS2_Form.css')
 	body
 		h1 Case Information
-		table(id="requestInformation" width="50%" align="center" cellspacing="0" cellpadding="0")
+		table(id="qesNotes")
 			tr
 				td Customer Name: #{request.customer.name}
 				td Customer Contact : #{request.customer.representative}
@@ -14,14 +14,17 @@ html
 				if request.CRM
 				td CRM : #{request.CRM}
 				br
-			tr
+			tr 
 				td Customer Question : #{request.custom_question}
-			if request.notes
-				td Notes: 
-					p
-						each note in request.notes
-							| #{note.addedBy} #{note.crm} #{note.text}
-							br
+			tr
+				if request.notes
+					td Notes: 
+						p
+							each note in request.notes
+								|#{note.addedBy} #{note.crm} 
+								br 
+								|#{note.text}
+								br
 		#studio
 			form(id="contact" action="/updaterequest" method="post")
 				h3 L+G Expert Section
