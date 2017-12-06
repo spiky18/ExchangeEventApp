@@ -1,8 +1,17 @@
 
 h1{
-  font-size: 25px;
+  font-size: 30px;
   color: #fff;
   text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 6px;
+  color: darkslategrey;
+}
+
+h2{
+  font-size: 23px;
+  color: #fff;
   font-weight: 300;
   text-align: center;
   margin-bottom: 6px;
@@ -29,6 +38,7 @@ h4{
 
 table{
   width:80%;
+  margin: 0 auto;
   table-layout: fixed;
   align-self: center;
 }
@@ -42,21 +52,25 @@ table{
   border: 1px solid rgba(255,255,255,0.3);
 }
 th{
-  padding: 20px 15px;
+  padding: 10px 5px;
   text-align: left;
   font-weight: 500;
   font-size: 16px;
   color: #fff;
+  border-left: 1em solid transparent;
   text-transform: uppercase;
   color: darkslategrey;
 }
 td{
-  padding: 15px;
+  padding: 3px;
   text-align: left;
+  overflow:hidden;
+  white-space:nowrap;
   vertical-align:middle;
   font-weight: 300;
   font-size: 16px;
   color: #fff;
+  border-left: 1em solid transparent;
   border-bottom: solid 1px rgba(255,255,255,0.1);
 }
 

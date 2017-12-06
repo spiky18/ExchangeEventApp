@@ -48,7 +48,7 @@ module.exports.addRequest=function(body,callback){
 }
 
 module.exports.showAllRequests=function(callback){
-	Request.find({},function(err,results){
+	Request.aggregate([{$sort:{creationTime:-1}}],function(err,results){
 	if(err)
 		console.log(err);
 	callback(results);
@@ -65,7 +65,7 @@ module.exports.findById=function(id,callback){
 
 
 module.exports.updateRequest =function(body,callback){
-	Request.update({_id:Object(body.request_id)},{$set:{"CRM":body.crm,"updatedBy":body.empName,"updationTime":new Date()},$addToSet:{"notes":{addedBy:body.empName,crm:body.crm,text:body.notes}}},function(err,results){
+	Request.update({_id:Object(body.request_id)},{$set:{"CRM":body.record_crm,"updatedBy":body.record_expert_name,"updationTime":new Date()},$addToSet:{"notes":{addedBy:body.record_expert_name,crm:body.record_crm,text:body.record_notes}}},function(err,results){
 	if(err)
 		console.log(err);
 	callback(results);
