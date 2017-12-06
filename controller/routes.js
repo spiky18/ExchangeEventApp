@@ -70,8 +70,7 @@ router.get('/request',function (req, res) {
 
 router.post('/updaterequest',function (req, res) {
   request.updateRequest(req.body,function(results){
-      res.json(results);
-      //res.render(path.join(__dirname, '..', "/views/requestDetails.pug" ),{request : results});
+      res.render( path.join(__dirname, '..', "/views/updatedReq.pug" ));
    });
 });
 
