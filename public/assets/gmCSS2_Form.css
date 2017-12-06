@@ -10,7 +10,7 @@
 #contact {
   background: #F9F9F9;
   padding: 25px;
-
+  width:70%;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
@@ -40,6 +40,7 @@ fieldset {
   min-width: 100%;
   padding: 0;
   width: 100%;
+  text-align: center;
 }
 
 #contact input[type="text"],
@@ -74,7 +75,7 @@ fieldset {
 
 #contact button[type="submit"] {
   cursor: pointer;
-  width: 100%;
+  width: 50%;
   border: none;
   background: #4CAF50;
   color: #FFF;
@@ -86,13 +87,14 @@ fieldset {
 
 #contact button[type="reset"] {
   cursor: pointer;
-  width: 100%;
+  width: 50%;
   border: none;
   background: #4CAF50;
   color: #FFF;
   margin: 0 0 5px;
   padding: 10px;
   font-size: 15px;
+  float: center;
 }
 
 #contact button[type="submit"]:hover {

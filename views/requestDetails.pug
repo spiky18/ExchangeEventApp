@@ -1,37 +1,43 @@
 html
 	head
-		title All Requests
+		title Case Information
+		link(rel='stylesheet', href='/assets/gmCSS1.css')
+		link(rel='stylesheet', href='/assets/gmCSS2_Form.css')
 	body
-		center
-			p Request id : #{request._id}
-			br
-			p Categoty : #{request.category}
-			br
-			p Customer : #{request.customer.name}
-			br
-			p Representative : #{request.customer.representative}
-			br
-			p Question : #{request.custom_question}
-			br
-			if request.CRM
-				p CRM : #{request.CRM}
+		table(id="requestInformation" width="50%" align="center" cellspacing="0" cellpadding="0")
+			tr
+				td(width:"30%") Customer Name: #{request.customer.name}
+				td(width:"30%") Customer Contact : #{request.customer.representative}
+			tr 
+				td(width:30%) Categoty : #{request.category}
+				if request.CRM
+				td(width:30%) CRM : #{request.CRM}
 				br
+			tr
+				td(width:"30%") Customer Question : #{request.custom_question}
 			if request.notes
-				p Notes : 
-					for each note in #{request.notes}
-						p #{note.addedBy} #{note.crm} : #{note.text} 
+				td(width:30%) Notes: 
+					p
+						each note in request.notes
+							| #{note.addedBy} #{note.crm} #{note.text}
+							br
+		h3 L+G Expert Section 
+		h4 Please capture your customer conversation
+		form(id="contact" action="/updaterequest" method="post")
+			input(type="hidden" name="request_id" value=request._id)
 			br
-			form(action="/updaterequest" method="post")
-				input(type="hidden" name="request_id" value=request._id)
-				p CRM :
-					input(type="text" name="crm" value="request.CRM")
+			fieldset 
+				input(type="text" name="record_expert_name" placeholder="L+G Expert Name")
 				br
-				p Notes : 
-					textarea(name="notes" rows=6 cols=50 value="request.notes")
+			fieldset
+				textarea(name="record_notes" rows=6 cols=60 placeholder="Type your notes here...")
 				br
-				p Updated By
-					input(type="text" name="empName")
+			fieldset
+				input(type="text" name="record_crm" value=request.CRM placeholder="Record CRM")
 				br
-
-				button(type="submit") Submit
+			fieldset
+				button(type="submit",id="contact_submit",name="contact_submit",data-submit="...Sending") Submit
+				br
+			fieldset
+				button(type="reset",id="contact_reset",name="contact_reset",form="contact",value="Reset") Reset
 
