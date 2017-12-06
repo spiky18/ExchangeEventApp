@@ -94,7 +94,14 @@ section{
   text-decoration: underline;
 }
 
+a {
+  color: #fff;
+  text-decoration: none;
+}
 
+a:hover {
+  text-decoration: underline;
+}
 /* for custom scrollbar for webkit browser*/
 
 ::-webkit-scrollbar {

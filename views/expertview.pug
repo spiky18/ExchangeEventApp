@@ -1,17 +1,26 @@
 html
 	head
-		title All Requests
+		title Exchange 2018: Ask the Experts
+		link(rel='stylesheet', href='/assets/gmCSS1.css')
 	body
-		table(id="RequestTable")
-			tr
-				th Category
-				th Customer
-				th Question
-				th CRM
-			each request in requests
+		table( id="RequestTable" width="90%" border="0" cellspacing="0" cellpadding="0")
+			h1 Welcome L+G Expert
+			tbody
 				tr
-					td 
-						a(href = '/request?id='+request._id) #{request.category}
-					td #{request.customer.name}	
-					td #{request.question}
-					td #{request.CRM}
+					th Category
+					th Customer
+					th Contact
+					th Question
+					th CRM
+				each request in requests
+					tr
+						td 
+							a(href = '/request?id='+request._id) #{request.category}
+						td 
+							a(href = '/request?id='+request._id) #{request.customer.name}	
+						td 
+							a(href = 'mailto:'+request.customer.email) #{request.customer.representative}
+						td 
+							a(href = '/request?id='+request._id) #{request.custom_question}
+						td 
+							a(href = '/request?id='+request._id) #{request.CRM}
