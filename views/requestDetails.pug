@@ -4,40 +4,42 @@ html
 		link(rel='stylesheet', href='/assets/gmCSS1.css')
 		link(rel='stylesheet', href='/assets/gmCSS2_Form.css')
 	body
+		h1 Case Information
 		table(id="requestInformation" width="50%" align="center" cellspacing="0" cellpadding="0")
 			tr
-				td(width:"30%") Customer Name: #{request.customer.name}
-				td(width:"30%") Customer Contact : #{request.customer.representative}
+				td Customer Name: #{request.customer.name}
+				td Customer Contact : #{request.customer.representative}
 			tr 
-				td(width:30%) Categoty : #{request.category}
+				td Categoty : #{request.category}
 				if request.CRM
-				td(width:30%) CRM : #{request.CRM}
+				td CRM : #{request.CRM}
 				br
 			tr
-				td(width:"30%") Customer Question : #{request.custom_question}
+				td Customer Question : #{request.custom_question}
 			if request.notes
-				td(width:30%) Notes: 
+				td Notes: 
 					p
 						each note in request.notes
 							| #{note.addedBy} #{note.crm} #{note.text}
 							br
-		h3 L+G Expert Section 
-		h4 Please capture your customer conversation
-		form(id="contact" action="/updaterequest" method="post")
-			input(type="hidden" name="request_id" value=request._id)
-			br
-			fieldset 
-				input(type="text" name="record_expert_name" placeholder="L+G Expert Name")
+		#studio
+			form(id="contact" action="/updaterequest" method="post")
+				h3 L+G Expert Section
+				h4 Please capture your customer conversation
+				input(type="hidden" name="request_id" value=request._id)
 				br
-			fieldset
-				textarea(name="record_notes" rows=6 cols=60 placeholder="Type your notes here...")
-				br
-			fieldset
-				input(type="text" name="record_crm" value=request.CRM placeholder="Record CRM")
-				br
-			fieldset
-				button(type="submit",id="contact_submit",name="contact_submit",data-submit="...Sending") Submit
-				br
-			fieldset
-				button(type="reset",id="contact_reset",name="contact_reset",form="contact",value="Reset") Reset
+				fieldset 
+					input(type="text" name="record_expert_name" placeholder="L+G Expert Name")
+					br
+				fieldset
+					textarea(name="record_notes" rows=6 cols=60 placeholder="Type your notes here...")
+					br
+				fieldset
+					input(type="text" name="record_crm" value=request.CRM placeholder="Record CRM")
+					br
+				fieldset
+					button(type="submit",id="contact_submit",name="contact_submit",data-submit="...Sending") Submit
+					br
+				fieldset
+					button(type="reset",id="contact_reset",name="contact_reset",form="contact",value="Reset") Reset
 

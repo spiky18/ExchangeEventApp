@@ -10,8 +10,11 @@
 #contact {
   background: #F9F9F9;
   padding: 25px;
-  width:70%;
+  width:100%;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  font-size: 14px;
+  font-weight: 300px;
+  align-self: center;
 }
 
 #contact h3 {
@@ -32,6 +35,17 @@
   font-size: 13px;
   font-weight: 400;
 	color: darkslategrey;
+}
+
+#studio {
+  display: table;
+  margin: 0 auto;
+  /*position: absolute;
+  width: 1000px;
+  height: 200px;
+  top: 75%;
+  left: 20%;
+  margin: -100px 0 0 -150px;*/
 }
 
 fieldset {
