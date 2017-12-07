@@ -1,9 +1,11 @@
 html
 	head
-		title Employee Profile
+		title Analysis of Customer queries
 		script(src='https://www.gstatic.com/charts/loader.js')
+		style
+			include ../public/assets/gmCSS1.css
 	body
-		div(id='technology')
+		div(id='technology', align='center')
 		script.
 			google.charts.load("current", {packages:["bar"]});
 			var categorizedata = !{JSON.stringify(data)};
@@ -21,7 +23,7 @@ html
 			'greetings':2,
 			'case':3
 			};
-			var result=[['type','ALM','PLC','Meterin','MDMS','DA','CC'],['generic',0,0,0,0,0,0],['greetings',0,0,0,0,0,0],['case',0,0,0,0,0,0]];
+			var result=[['Query','ALM','PLC','Meterin','MDMS','DA','CC'],['generic',0,0,0,0,0,0],['greetings',0,0,0,0,0,0],['case',0,0,0,0,0,0]];
 			for(i=0;i<objArr.length;i++){
 				if(typeof objArr[i]._id.qtype!='undefined'){
 				var row=typeMap[objArr[i]._id.qtype];
@@ -38,11 +40,11 @@ html
 			var data = google.visualization.arrayToDataTable(matrix);
 			var options =  {
 			chart: {
-			title: 'Company Performance',
-			subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+			title: 'Exchange Event 2018'
 			},
 			bars: 'horizontal', // Required for Material Bar Charts.
 			hAxis: {format: 'decimal'},
+			width: 700,
 			height: 400,
 			colors: ['#1b9e77', '#d95f02', '#7570b3','#4caf50']
 			};
