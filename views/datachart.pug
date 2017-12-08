@@ -5,6 +5,7 @@ html
 		style
 			include ../public/assets/gmCSS1.css
 	body
+		h1 Analysis
 		div(id='technology', align='center')
 		script.
 			google.charts.load("current", {packages:["bar"]});
@@ -23,7 +24,7 @@ html
 			'greetings':2,
 			'case':3
 			};
-			var result=[['Query','ALM','PLC','Meterin','MDMS','DA','CC'],['generic',0,0,0,0,0,0],['greetings',0,0,0,0,0,0],['case',0,0,0,0,0,0]];
+			var result=[['Query','ALM','PLC','Metering','MDMS','DA','CC'],['generic',0,0,0,0,0,0],['greetings',0,0,0,0,0,0],['case',0,0,0,0,0,0]];
 			for(i=0;i<objArr.length;i++){
 				if(typeof objArr[i]._id.qtype!='undefined'){
 				var row=typeMap[objArr[i]._id.qtype];
