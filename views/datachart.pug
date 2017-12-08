@@ -24,7 +24,7 @@ html
 			'greetings':2,
 			'case':3
 			};
-			var result=[['Query','ALM','PLC','Metering','MDMS','DA','CC'],['generic',0,0,0,0,0,0],['greetings',0,0,0,0,0,0],['case',0,0,0,0,0,0]];
+			var result=[['Query','ALM','PLC','Metering','MDMS','DA','CC'],['Generic Questions ',0,0,0,0,0,0],['Greetings Only',0,0,0,0,0,0],['Cases Created',0,0,0,0,0,0]];
 			for(i=0;i<objArr.length;i++){
 				if(typeof objArr[i]._id.qtype!='undefined'){
 				var row=typeMap[objArr[i]._id.qtype];
@@ -41,7 +41,7 @@ html
 			var data = google.visualization.arrayToDataTable(matrix);
 			var options =  {
 			chart: {
-			title: 'Exchange Event 2018'
+			title: 'Status Tracking 2018'
 			},
 			bars: 'horizontal', // Required for Material Bar Charts.
 			hAxis: {format: 'decimal'},
